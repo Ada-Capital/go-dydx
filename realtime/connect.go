@@ -9,9 +9,9 @@ import (
 	"os"
 	"time"
 
+	"github.com/Ada-Capital/go-dydx/private"
+	"github.com/Ada-Capital/go-dydx/public"
 	"github.com/buger/jsonparser"
-	"github.com/go-numb/go-dydx/private"
-	"github.com/go-numb/go-dydx/public"
 
 	"github.com/gorilla/websocket"
 )

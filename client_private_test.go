@@ -7,11 +7,11 @@ import (
 	"testing"
 	"time"
 
-	dydx "github.com/go-numb/go-dydx"
-	"github.com/go-numb/go-dydx/helpers"
-	"github.com/go-numb/go-dydx/private"
-	"github.com/go-numb/go-dydx/realtime"
-	"github.com/go-numb/go-dydx/types"
+	dydx "github.com/Ada-Capital/go-dydx"
+	"github.com/Ada-Capital/go-dydx/helpers"
+	"github.com/Ada-Capital/go-dydx/private"
+	"github.com/Ada-Capital/go-dydx/realtime"
+	"github.com/Ada-Capital/go-dydx/types"
 	"github.com/stretchr/testify/assert"
 )
 

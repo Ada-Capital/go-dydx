@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-numb/go-dydx"
-	"github.com/go-numb/go-dydx/helpers"
-	"github.com/go-numb/go-dydx/public"
+	"github.com/Ada-Capital/go-dydx"
+	"github.com/Ada-Capital/go-dydx/helpers"
+	"github.com/Ada-Capital/go-dydx/public"
 	"github.com/stretchr/testify/assert"
 )
 
