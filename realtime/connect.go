@@ -141,14 +141,20 @@ EXIT:
 	return err
 }
 
-func Connect(ctx context.Context, ch chan Response, channels, symbols []string, private *private.Private, l *log.Logger) error {
+func Connect(ctx context.Context, ch chan Response, channels, symbols []string, private *private.Private, l *log.Logger, t bool) error {
 RESTART:
 
 	if l == nil {
 		l = log.New(os.Stdout, "dYdX websocket ", log.Llongfile)
 	}
+	var addr string
+	if t == false {
+		addr = PRODUCTION
+	} else {
+		addr = STAGING
+	}
 
-	conn, _, err := websocket.DefaultDialer.Dial(PRODUCTION, nil)
+	conn, _, err := websocket.DefaultDialer.Dial(addr, nil)
 	if err != nil {
 		return err
 	}
