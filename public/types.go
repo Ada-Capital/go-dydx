@@ -71,15 +71,31 @@ type OrderbookResponse struct {
 }
 
 type Book struct {
-	Price  string
-	Size   string
-	Offset string
+	Price  string `json:"price"`
+	Size   string `json:"size"`
+	Offset string `json:"offset"`
 }
 
 func (p *Book) UnmarshalJSON(data []byte) error {
 	var s []string
 	if err := json.Unmarshal(data, &s); err != nil {
-		return err
+
+		// First screenshot
+		type TmpS struct {
+			Price  string `json:"price"`
+			Size   string `json:"size"`
+			Offset string `json:"offset"`
+		}
+
+		t := TmpS{}
+
+		if err := json.Unmarshal(data, &t); err != nil {
+			return err
+		}
+
+		p.Price = t.Price
+		p.Size = t.Size
+		p.Offset = t.Offset
 	}
 
 	l := len(s)

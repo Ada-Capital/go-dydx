@@ -218,8 +218,11 @@ RESTART:
 				}
 
 			case ORDERBOOK:
+
 				if err := json.Unmarshal(data, &res.Orderbook); err != nil {
-					l.Printf("[WARN]: cant unmarshal orderbook %+v", err)
+					l.Printf("[WARN]: cant unmarshal orderbook TESTEZAO %+v", err)
+
+					fmt.Println(string(data))
 					continue
 				}
 
