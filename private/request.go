@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log"
 	"net/url"
 
 	"github.com/Ada-Capital/go-dydx/helpers"
@@ -55,12 +56,14 @@ func (p *Private) CreateOrder(input *ApiOrder, positionId int64) (*OrderResponse
 	}
 	signature, err := starkex.OrderSign(p.StarkPrivateKey, orderSignParam)
 	if err != nil {
+		log.Println("Error starkex sign:", err.Error())
 		return nil, errors.New("sign error")
 	}
 	input.Signature = signature
 
 	res, err := p.post("orders", input)
 	if err != nil {
+		log.Println("Error REST POST orders:", err.Error())
 		return nil, err
 	}
 
