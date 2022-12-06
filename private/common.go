@@ -58,7 +58,7 @@ func (p *Private) request(method, endpoint string, data string) ([]byte, error) 
 		buf := new(bytes.Buffer)
 		buf.ReadFrom(res.Body)
 		p.Logger.Printf("uri: %s, code: %d, err msg: %s", requestPath, res.StatusCode, buf.String())
-		return nil, fmt.Errorf("uri: %v , status code: %d", requestPath, res.StatusCode)
+		return nil, fmt.Errorf(buf.String())
 	}
 
 	b, err := ioutil.ReadAll(res.Body)
