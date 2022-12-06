@@ -155,3 +155,28 @@ type HistoricalFundingsParam struct {
 	Market              string `url:"-"`
 	EffectiveBeforeOrAt string `url:"effectiveBeforeOrAt,omitempty"`
 }
+
+type ConfigResponse struct {
+	CollateralAssetId             string `json:"collateralAssetId"`
+	CollateralTokenAddress        string `json:"collateralTokenAddress"`
+	DefaultMakerFee               string `json:"defaultMakerFee"`
+	DefaultTakerFee               string `json:"defaultTakerFee"`
+	ExchangeAddress               string `json:"exchangeAddress"`
+	MaxExpectedBatchLengthMinutes string `json:"maxExpectedBatchLengthMinutes"`
+	MaxFastWithdrawalAmount       string `json:"maxFastWithdrawalAmount"`
+	CancelOrderRateLimiting       struct {
+		MaxPointsMulti  int64 `json:"maxPointsMulti"`
+		MaxPointsSingle int64 `json:"maxPointsSingle"`
+		WindowSecMulti  int64 `json:"windowSecMulti"`
+		WindowSecSingle int64 `json:"windowSecSingle"`
+	} `json:"cancelOrderRateLimiting"`
+	PlaceOrderRateLimiting struct {
+		MaxPoints                 int64 `json:"maxPoints"`
+		WindowSec                 int64 `json:"windowSec"`
+		TargetNotional            int64 `json:"targetNotional"`
+		MinLimitConsumption       int64 `json:"minLimitConsumption"`
+		MinMarketConsumption      int64 `json:"minMarketConsumption"`
+		MinTriggerableConsumption int64 `json:"minTriggerableConsumption"`
+		MaxOrderConsumption       int64 `json:"maxOrderConsumption"`
+	} `json:"placeOrderRateLimiting"`
+}

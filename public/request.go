@@ -80,3 +80,18 @@ func (p *Public) GetHistoricalFunding(param *HistoricalFundingsParam) (*Historic
 
 	return t, nil
 }
+
+func (p *Public) GetConfig() (*ConfigResponse, error) {
+	var u url.Values
+	res, err := p.get("config", u)
+	if err != nil {
+		return nil, err
+	}
+	//fmt.Printf("%s\n", string(res))
+	t := &ConfigResponse{}
+	if err := json.Unmarshal(res, t); err != nil {
+		return nil, err
+	}
+
+	return t, nil
+}
