@@ -176,7 +176,7 @@ type CancelOrderResponse struct {
 }
 
 type CancelOrdersResponse struct {
-	CancelOrders Order `json:"cancelOrder"`
+	CancelOrders []Order `json:"cancelOrders"`
 }
 
 type Order struct {
