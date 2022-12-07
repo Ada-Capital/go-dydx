@@ -62,7 +62,7 @@ func (p *Private) request(method, endpoint string, data string) ([]byte, error) 
 	}
 
 	b, err := ioutil.ReadAll(res.Body)
-	p.Logger.Printf("uri: %s, response body: %s", requestPath, b)
+	//p.Logger.Printf("uri: %s, response body: %s", requestPath, b)
 	return b, err
 }
 
